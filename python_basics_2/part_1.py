@@ -315,3 +315,106 @@ def sum(num1, num2):
     def another_func(n1, n2):
         return n1 + n2
     return another_func(num1, num2)
+
+
+# tesla execise 
+
+age = input("What is your age?: ")
+
+
+
+if int(age) < 18:
+	print("Sorry, you are too young to drive this car. Powering off")
+elif int(age) > 18:
+	print("Powering On. Enjoy the ride!");
+elif int(age) == 18:
+	print("Congratulations on your first year of driving. Enjoy the ride!")
+
+#1. Wrap the above code in a function called checkDriverAge(). Whenever you call this function, you will get prompted for age. 
+# Notice the benefit in having checkDriverAge() instead of copying and pasting the function everytime?
+
+def checkDriverAge():
+    age = input("What is your age?: ")
+
+
+
+    if int(age) < 18:
+        return print("Sorry, you are too young to drive this car. Powering off")
+    elif int(age) > 18:
+        return print("Powering On. Enjoy the ride!");
+    elif int(age) == 18:
+        return print("Congratulations on your first year of driving. Enjoy the ride!")
+
+#2 Instead of using the input(). Now, make the checkDriverAge() function accept an argument of age, so that if you enter:
+#checkDriverAge(92);
+#it returns "Powering On. Enjoy the ride!"
+#also make it so that the default age is set to 0 if no argument is giv
+def checkDriverAge(age):
+    
+
+
+
+    if int(age) < 18:
+        return print("Sorry, you are too young to drive this car. Powering off")
+    elif int(age) > 18:
+        return print("Powering On. Enjoy the ride!");
+    elif int(age) == 18:
+        return print("Congratulations on your first year of driving. Enjoy the ride!")
+
+
+checkDriverAge(20)
+
+
+# methods vs functions
+# a method has to be owned by something whatever is to the left of the method
+# methods are called with .nameofmethod()
+
+# function are called with nameoffunction()
+
+# docstrings
+
+def test(a):
+    ''' this is a docstring can be used to describe the function'''
+    return print(a)
+    
+    
+help(test) #to get help on the function to show your doc string
+
+# or use dunder to show your doc string
+print(test.__doc__)
+
+# clean code
+
+def is_odd_or_even(num):
+    if num % 2 == 0:
+        return True 
+    elif num % 2 != 0:
+        return False
+    
+    # could be cleaned up to 
+    
+    
+    # since a num is either even or odd so if u check for even the other result is automatically odd
+def is_odd_or_even(num):
+    if num % 2 == 0:
+        return True 
+    return False
+
+# could also be improved to 
+def is_odd_or_even(num):
+    return num % 2 == 0
+        
+        
+        
+# *args **kwargs
+# to pass multiple arguments to a function and multiple keyword arguments
+# it passes the arguments as a tuple
+# kwargs e.g. num1=5 this passes it to the function as a dictionary
+def super_func(*args, **kwargs):
+    total = 0
+    for item in kwargs.values():
+        total += item
+    return sum(args) + total
+# rule of ordering our args, *args, default params **kwargs
+# def me(name, *args, age=20, **kwargs)
+print(super_func(1,2,3,4,5, num1=5, num2=10))
