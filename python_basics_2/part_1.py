@@ -543,3 +543,7 @@ functions allow us to not repeat ourselves but another good use is once we call 
 
 
 # formatting pep -python enhancement proposals this are proposals given by the python community in order to have a standardized way to write code pep 8 is a style guide but code editors and ides helpus
+
+
+# code editors are lightweight u hav to install bits and pieces and create your own env
+# ide's are full fledged environment to help us a lot
