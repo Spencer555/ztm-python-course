@@ -11,7 +11,7 @@ from translate import Translator
 
 
 with open('text_to_translate.txt') as file:
-    with open('translated_text', mode='w') as output_file:
+    with open('translated_text.txt', mode='w', encoding='utf-8') as output_file:
         translator = Translator(to_lang='ja')
         translation = translator.translate(file.read())
         output_file.write(translation)
