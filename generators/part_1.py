@@ -5,6 +5,7 @@
 # a list creates a giant list of a 100 items in memory but range does it one at a time
 
 
+from functools import reduce
 from time import time
 range(100)
 list(range(100))
@@ -157,3 +158,126 @@ def fib2(num):
 
 
 print(fib2(20))
+
+
+# lambda expressions
+
+# lambda expressions in python are one thime anonymous function that you dont need more than once
+
+
+# lambda param: action_to_take_on_param(param)
+
+
+def multiply_by2(item):
+    return item*2
+
+# using lambda as multiply_by2
+
+
+print(list(map(lambda item: item*2, [1, 2, 3, 4, 5])))
+
+
+def results(item): return item * 3
+
+
+print(results(2))
+
+
+# lambda with reduce
+
+ryour_list = 10, 20, 30, 40
+
+
+def accumulator(acc, item):
+    print(acc, item)
+    return acc + item
+
+
+print(reduce(lambda acc, item: acc + item, ryour_list, 0))
+
+
+# lambda makes code really small but less readable and confusing to people
+
+# exercise
+# create a lambda that squares your list 1,2,3 returns 1,4,9
+
+my_list = [5, 4, 3]
+
+
+print(list(map(lambda item: item**2, my_list)))
+
+
+# exercise 2
+# list sorting  sort this based on second value
+a = [(0, 2), (4, 3), (9, 9), (10, -1)]
+
+
+a.sort(key=lambda key: key[1])
+
+print(a)
+
+
+# comprehensions
+# list, set, dictionary
+# a quick way to create the above instead of looping or appending
+
+my_list = []
+
+for char in 'hello':
+    my_list.append(char)
+
+
+print(my_list)
+
+
+# list comprehension
+
+# my_list = [param for param in iterable]
+
+my_list1 = [char for char in 'hello']
+
+
+my_list1 = [char ** 2 for char in range(100)]
+
+# print(my_list1)
+
+
+# generate only even numbers after squaring the numbers
+my_list1 = [char ** 2 for char in range(100) if char % 2 == 0 and char > 0]
+print(my_list1)
+
+
+# they can get confusing and complicate code readability so it might be better to create a descriptive function
+
+# with sets comprehension
+# we change [] to {}
+
+
+my_list2 = {char for char in 'hello'}
+print(my_list2)
+
+
+my_list2 = {char ** 2 for char in range(100)}
+print(my_list2)
+
+
+# generate only even numbers after squaring the numbers
+my_list2 = {char ** 2 for char in range(100) if char % 2 == 0 and char > 0}
+
+print(my_list2)
+
+
+# dictionary
+# with sets comprehension
+# we change [] to {}
+
+simple_dict = {'a': 1, 'b': 2}
+# my_dict = {key:value**2 for key,value in simple_dict.items()}
+my_dict = {key: value**2 for key, value in simple_dict.items() if value %
+           2 == 0}
+print(my_dict)
+
+# exercise item should be the key and item multiplied by 2 is the value
+our_dict = {num: num*2 for num in [1, 2, 3]}
+
+print(our_dict)

@@ -126,3 +126,22 @@ def accumulator(acc, item):
 
 
 print(reduce(accumulator, my_numbers, 0))
+
+
+# exercise
+# use list comprehension to get duplicates
+some_list = ['a', 'b', 'c', 'b', 'd', 'm', 'n', 'n']
+
+
+our_dict = {num: num*2 for num in [1, 2, 3]}
+
+# duplicates = [item for item in some_list if item.count(item) > 1]
+duplicates = list({item for item in some_list if some_list.count(item) > 1})
+
+# for value in some_list:
+#     if some_list.count(value) > 1:
+#         if value not in duplicates:
+#             duplicates.append(value)
+
+
+print(duplicates)
